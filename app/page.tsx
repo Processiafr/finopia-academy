@@ -116,8 +116,24 @@ export default function LandingPage() {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center pt-24 pb-20 z-10">
-        <div className="container mx-auto px-4">
+      <section id="hero" className="relative min-h-screen pt-24 pb-20 overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white z-0"></div>
+
+        {/* Logo header */}
+        <div className="absolute top-6 left-6 z-20">
+          <div className="relative h-16 w-auto">
+            <Image
+              src="/Logo FINOPIA Academy.png"
+              alt="Finopia Academy Logo"
+              width={200}
+              height={100}
+              className="h-auto"
+            />
+          </div>
+        </div>
+
+        <div className="container relative mx-auto px-4 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <motion.div
               className="lg:col-span-7 z-10"
@@ -125,18 +141,6 @@ export default function LandingPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="relative h-32 w-auto">
-                  <Image
-                    src="/Logo FINOPIA Academy.png"
-                    alt="Finopia Academy Logo"
-                    width={240}
-                    height={120}
-                    className="h-auto"
-                  />
-                </div>
-              </div>
-
               <h1 className="text-title mb-6">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#20a29d] to-[#f2c14e]">
                   Business Game
@@ -499,22 +503,32 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="relative py-10 z-10 border-t border-gray-200 bg-white">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center gap-4 mb-6 md:mb-0">
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center">
+          <div className="flex items-center gap-4 mb-6">
             <div className="relative h-20 w-auto">
               <Image
                 src="/Logo FINOPIA Academy.png"
                 alt="Finopia Academy Logo"
-                width={160}
-                height={80}
+                width={240}
+                height={120}
                 className="h-auto"
               />
             </div>
           </div>
 
-          <p className="text-sm text-gray-500 font-secondary">
-            {new Date().getFullYear()} Finopia Academy. Tous droits réservés.
-          </p>
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-sm text-gray-500 font-secondary text-center">
+              {new Date().getFullYear()} Finopia Academy. Tous droits réservés.
+            </p>
+            <div className="flex gap-6 text-sm text-gray-500 justify-center mt-2">
+              <a href="https://finopia.fr/mentions-legales/" target="_blank" rel="noopener noreferrer" className="hover:text-[#20a29d] transition-colors">
+                Mentions légales
+              </a>
+              <a href="https://finopia.fr/politique-de-confidentialite/" target="_blank" rel="noopener noreferrer" className="hover:text-[#20a29d] transition-colors">
+                Politique de confidentialité
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
