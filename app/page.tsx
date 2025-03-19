@@ -116,7 +116,7 @@ export default function LandingPage() {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen pt-24 pb-20 overflow-hidden">
+      <section id="hero" className="relative min-h-screen pt-44 pb-20 overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white z-0"></div>
 
@@ -141,9 +141,9 @@ export default function LandingPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-title mb-6">
+              <h1 className="text-title mb-5 leading-tight">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#20a29d] to-[#f2c14e]">
-                  Business Game
+                  Former vos équipes grâce à la pédagogie par le jeu
                 </span>
               </h1>
 
@@ -154,6 +154,42 @@ export default function LandingPage() {
               <p className="text-body mb-8 text-gray-600">
                 <span className="font-semibold">Finopia Academy</span> vous propose un business game immersif pour développer les compétences de vos équipes en finance et supply chain.
               </p>
+
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold mb-3 text-gray-700">Nos bénéfices :</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1 text-[#20a29d]"><ChevronRight className="w-4 h-4" /></div>
+                    <p className="text-body text-gray-600">Apprentissage des concepts théoriques à travers une simulation en entreprise</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1 text-[#20a29d]"><ChevronRight className="w-4 h-4" /></div>
+                    <p className="text-body text-gray-600">Développement des softs skills</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1 text-[#20a29d]"><ChevronRight className="w-4 h-4" /></div>
+                    <p className="text-body text-gray-600">Engagement et motivation de vos collaborateurs</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold mb-3 text-gray-700">Notre méthode de formation se décline pour :</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1 text-[#f2c14e]"><ChevronRight className="w-4 h-4" /></div>
+                    <p className="text-body text-gray-600">Les métiers de la Finance</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1 text-[#f2c14e]"><ChevronRight className="w-4 h-4" /></div>
+                    <p className="text-body text-gray-600">Les métiers de la Supply Chain</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="mt-1 text-[#f2c14e]"><ChevronRight className="w-4 h-4" /></div>
+                    <p className="text-body text-gray-600">Les métiers de la Gestion de projet</p>
+                  </li>
+                </ul>
+              </div>
 
               <div className="flex flex-wrap gap-4">
                 <Button
@@ -228,7 +264,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-2 mb-6">
               <div className="h-px bg-gradient-to-r from-[#20a29d] to-transparent flex-grow"></div>
               <span className="text-[#20a29d] uppercase tracking-wider text-sm font-semibold font-primary">
-                Business Game
+                Notre approche pédagogique
               </span>
               <div className="h-px bg-gradient-to-l from-[#20a29d] to-transparent flex-grow"></div>
             </div>
