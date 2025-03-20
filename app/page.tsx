@@ -340,6 +340,49 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Registration Section */}
+      <section id="register" className="relative py-20 z-10">
+        <div className="absolute inset-0 bg-gray-50 -skew-y-3 z-0"></div>
+        <div className="container relative mx-auto px-4 z-10 pt-16">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="text-center mb-10">
+              <h2 className="text-title mb-6">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#20a29d] to-[#f2c14e]">
+                  Inscription
+                </span>
+              </h2>
+              <p className="text-subtitle mb-8">
+                Réservez votre place dès maintenant
+              </p>
+              <p className="text-body text-gray-600 mb-10">
+                Complétez le formulaire ci-dessous pour vous inscrire à notre prochain business game. Les places sont limitées, ne tardez pas !
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#20a29d]/20 via-[#f2c14e]/20 to-[#20a29d]/20 rounded-2xl blur-xl"></div>
+              <div className="relative bg-white backdrop-blur-sm border border-gray-100 rounded-2xl p-8 shadow-xl">
+                <RegistrationForm />
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-gray-700 mb-2 font-secondary">
+                Pour plus de renseignement sur le déroulé de la journée, n'hésitez pas à contacter :
+              </p>
+              <p className="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#20a29d] to-[#f2c14e] font-primary">
+                Emmanuelle RAMAYE – 06 93 832 503
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Gallery Section */}
       <section id="gallery" className="relative py-20 z-10">
         <div className="container mx-auto px-4">
@@ -380,6 +423,39 @@ export default function LandingPage() {
               title="Networking"
               description="Échanges entre professionnels"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Info Cards Section */}
+      <section className="relative py-16 z-10 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Date Card */}
+            <InfoCard icon={<Calendar className="w-10 h-10" />} title="Date" value="30/04/2025" color="teal" />
+
+            {/* Location Card */}
+            <InfoCard
+              icon={<MapPin className="w-10 h-10" />}
+              title="Lieu"
+              value="Radisson Saint-Denis, La Reunion /
+              2 Rue Doret, Saint-Denis 97400"
+              color="yellow"
+            />
+
+            {/* Price Card */}
+            <InfoCard icon={<Coins className="w-10 h-10" />} title="Tarif" value="200€" color="teal" />
+          </div>
+          
+          <div className="flex justify-center mt-10">
+            <Button
+              className="group relative overflow-hidden bg-gradient-to-r from-[#20a29d] to-[#f2c14e] rounded-full px-8 py-6 text-white font-medium text-lg hover:shadow-lg transition-all duration-300 font-primary"
+              onClick={(e) => scrollToSection("register", e)}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Inscrivez-vous <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Button>
           </div>
         </div>
       </section>
@@ -441,71 +517,6 @@ export default function LandingPage() {
                   color="teal"
                 />
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Info Cards Section */}
-      <section className="relative py-16 z-10 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Date Card */}
-            <InfoCard icon={<Calendar className="w-10 h-10" />} title="Date" value="30/04/2025" color="teal" />
-
-            {/* Location Card */}
-            <InfoCard
-              icon={<MapPin className="w-10 h-10" />}
-              title="Lieu"
-              value="Radisson Saint-Denis, La Reunion<br/>
-              2 Rue Doret, Saint-Denis, 97400, Réunion Island"
-              color="yellow"
-            />
-
-            {/* Price Card */}
-            <InfoCard icon={<Coins className="w-10 h-10" />} title="Tarif" value="200€" color="teal" />
-          </div>
-        </div>
-      </section>
-
-      {/* Registration Section */}
-      <section id="register" className="relative py-20 z-10">
-        <div className="absolute inset-0 bg-gray-50 -skew-y-3 z-0"></div>
-        <div className="container relative mx-auto px-4 z-10 pt-16">
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="text-center mb-10">
-              <h2 className="text-title mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#20a29d] to-[#f2c14e]">
-                  Inscription
-                </span>
-              </h2>
-              <p className="text-subtitle mb-8">
-                Réservez votre place dès maintenant
-              </p>
-              <p className="text-body text-gray-600 mb-10">
-                Complétez le formulaire ci-dessous pour vous inscrire à notre prochain business game. Les places sont limitées, ne tardez pas !
-              </p>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#20a29d]/20 via-[#f2c14e]/20 to-[#20a29d]/20 rounded-2xl blur-xl"></div>
-              <div className="relative bg-white backdrop-blur-sm border border-gray-100 rounded-2xl p-8 shadow-xl">
-                <RegistrationForm />
-              </div>
-            </div>
-
-            <div className="mt-12 text-center">
-              <p className="text-gray-700 mb-2 font-secondary">
-                Pour plus de renseignement sur le déroulé de la journée, n'hésitez pas à contacter :
-              </p>
-              <p className="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#20a29d] to-[#f2c14e] font-primary">
-                Emmanuelle RAMAYE – 06 93 832 503
-              </p>
             </div>
           </motion.div>
         </div>
