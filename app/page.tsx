@@ -457,7 +457,8 @@ export default function LandingPage() {
             <InfoCard
               icon={<MapPin className="w-10 h-10" />}
               title="Lieu"
-              value="142 Chem. Boeuf Mort, La Possession 97419, La Réunion"
+              value="Radisson Saint-Denis, La Reunion<br/>
+              2 Rue Doret, Saint-Denis, 97400, Réunion Island"
               color="yellow"
             />
 
