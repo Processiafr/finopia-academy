@@ -47,16 +47,43 @@ export default function RegistrationForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(values)
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      toast({
-        title: "Inscription envoyée",
-        description: "Nous vous contacterons prochainement pour confirmer votre inscription.",
+    // Appel direct au webhook n8n pour l'inscription
+    fetch("https://finopia.app.n8n.cloud/webhook/f6e4e676-62f4-4aa1-904b-4b0b656338ba", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nom: values.nom,
+        prenom: values.prenom,
+        email: values.email,
+        telephone: values.telephone,
+        entreprise: values.entreprise,
+        fonction: values.fonction,
+        message: values.message || "",
+      }),
+      mode: "no-cors", // Important pour éviter les erreurs CORS
+    })
+      .then(() => {
+        // Avec mode: "no-cors", on ne peut pas lire la réponse
+        // Mais on peut quand même considérer que la requête a été envoyée
+        console.log("Données d'inscription envoyées:", values);
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        toast({
+          title: "Inscription envoyée",
+          description: "Nous vous contacterons prochainement pour confirmer votre inscription.",
+        });
       })
-    }, 1500)
+      .catch((error) => {
+        console.error("Erreur détaillée:", error.message || error);
+        setIsSubmitting(false);
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue lors de l'inscription. Veuillez réessayer.",
+          variant: "destructive",
+        });
+      });
   }
 
   if (isSubmitted) {
@@ -281,4 +308,3 @@ export default function RegistrationForm() {
     </Form>
   )
 }
-

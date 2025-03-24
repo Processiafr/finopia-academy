@@ -28,16 +28,34 @@ export default function NewsletterForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(values)
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      toast({
-        title: "Inscription réussie",
-        description: "Vous êtes maintenant inscrit à notre newsletter.",
+    // Appel direct au webhook n8n avec les bons paramètres
+    fetch("https://finopia.app.n8n.cloud/webhook/3278072f-d2b3-4ed9-bfc6-108f4d4ce2eb", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: values.email }),
+      mode: "no-cors", // Important pour éviter les erreurs CORS
+    })
+      .then(() => {
+        // Avec mode: "no-cors", on ne peut pas lire la réponse
+        // Mais on peut quand même considérer que la requête a été envoyée
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        toast({
+          title: "Inscription réussie",
+          description: "Vous êtes maintenant inscrit à notre newsletter.",
+        });
       })
-    }, 1000)
+      .catch((error) => {
+        console.error("Erreur détaillée:", error.message || error);
+        setIsSubmitting(false);
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue lors de l'inscription. Veuillez réessayer.",
+          variant: "destructive",
+        });
+      });
   }
 
   if (isSubmitted) {
@@ -95,4 +113,3 @@ export default function NewsletterForm() {
     </Form>
   )
 }
-
